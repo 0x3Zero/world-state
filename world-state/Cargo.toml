@@ -1,0 +1,36 @@
+[package]
+name = "world-state"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = { version= "1.0", default-features = false }
+array-bytes = "6.1"
+keccak-hasher = { path = "../keccak-hasher" }
+crypto = { path = "../crypto" }
+trie-db = { version= "0.27.1", default-features = false }
+hash-db = { version = "0.16.0", default-features = false }
+parity-scale-codec = { version = "3.0.0", features = ["derive"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+rlp = { version = "0.5.1", default-features = false }
+rlp-derive = "0.1.0"
+memory-db = { version = "0.32.0", default-features = false }
+hex = "0.4.3"
+hex-literal = "0.4.1"
+kvdb = "0.13.0"
+kvdb-rocksdb = "0.19.0"
+tempfile = "3.1.0"
+config = "0.13.0"
+lazy_static = "1.4"
+
+[features]
+default = ["std"]
+std = [
+    "trie-db/std",
+    "hash-db/std",
+    "rlp/std",
+    "anyhow/std"
+]
